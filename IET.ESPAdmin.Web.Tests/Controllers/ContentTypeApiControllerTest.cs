@@ -37,7 +37,7 @@ namespace IET.ESPAdmin.Web.Tests.Controllers
             _mockContentTypeService.Setup(d => d.GetContentTypeList()).Returns(_contentTypeList.GetContentTypeListData());
             //Act
             var result = _contentTypesController.Get();
-            //Assertf
+            //Assert
             Assert.AreEqual(28, result.Count());
         }
 
@@ -45,7 +45,7 @@ namespace IET.ESPAdmin.Web.Tests.Controllers
         public void Given_A_New_ContentType_I_Should_Get_The_Newly_Created_ContentType_Added_To_ContentType_List()
         {
             //Arrange
-            //The New ContentType
+            //The New ContentType.
             var newContentType = new ContentType { Id = 29, Category = "IET Category", Group = "IET", BookType = "IET1" };
             //Getting the list locally and adding the newly created ContentType
             var contentTypeList = _contentTypeList.GetContentTypeListData();
