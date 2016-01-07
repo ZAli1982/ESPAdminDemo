@@ -38,7 +38,7 @@ namespace IET.ESPAdmin.Web.Tests.Controllers
             //Act
             var result = _contentTypesController.Get();
             //Assert
-            Assert.AreEqual(29, result.Count());
+            Assert.AreEqual(28, result.Count());
         }
 
         [TestMethod]
