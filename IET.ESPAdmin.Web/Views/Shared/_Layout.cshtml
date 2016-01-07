@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="@ViewBag.InitModule">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.css">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @*@Styles.Render("~/bundles/mini-spa/style");*@
+</head>
+<body class="pace-done">
+    <div class="esp_logoc_container" style="background-color: white">
+        <div class="row">
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-2">
+                <div class="logo">
+                    <img src="~/Image/esplogo.png" />
+                </div>
+            </div>
+            <div class="col-sm-4">
+            </div>
+            <div class="col-sm-4">
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#/">IET ES+</a>
+            </div>
+        </div>
+    </nav>
+    <div id="wrapper">
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <span>
+                            <img alt="image" class="img-circle" src="Image/profile_small_default.jpg" />
+                        </span>
+                        <span class="clear">
+                            <span class="block m-t-xs">
+                                <strong data-ng-controller="WelcomeController" data-ng-model="gettimeofday">
+                                    {{gettimeofday}} <br/> {{logonUser}}
+                                </strong>
+                            </span>
+                       </span>
+                    </li>
+                    <li>
+                        <a href="#/" class="active">Landing Page</a>
+                    </li>
+                    <li>
+                        <a href="#adminContentTypeUtilities/Home" class="">Admin Utilities</a>
+                    </li>
+                    <li>
+                        <a href="#/esp/Reports" class="">Reports</a>
+                    </li>
+                    <li>
+                        <a href="#/esp/espUsefulSites" class="">ESP Useful Website</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="page-wrapper" class="gray-bg dashbard-1" style="min-height: 402px;">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div navbar-header>
+                </div>
+            </nav>
+            @RenderBody()
+        </div>
+    </div>
+    @*<hr/>
+    <div style="background-color: white;">
+        <footer>
+            <p>&copy; @DateTime.Now.Year - IET ES+</p>
+        </footer>
+    </div>*@
+    
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/Scripts/angular.js")
+        @Scripts.Render("~/Scripts/angular-route.js")
+        @Scripts.Render("~/Scripts/angular-ui/ui-bootstrap-tpls.js")
+        @Scripts.Render("~/Scripts/ng-table.js")
+        @Scripts.Render("~/Scripts/chart.js")
+        @Scripts.Render("~/Scripts/angular-chart.js")
+        @Scripts.Render("~/app/espApp.js")
+        @*@Scripts.Render("~/bundles/mini-spa-script")*@
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+</body>
+</html>

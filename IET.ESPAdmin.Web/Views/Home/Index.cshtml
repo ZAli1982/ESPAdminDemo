@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Home Page";
+    ViewBag.InitModule = "espApp";
+}
+
+@section Scripts{ 
+
+@*<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>*@
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-strap/0.7.2/angular-strap.min.js"></script>
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.1.js"></script>
+@* Serivices *@
+<script src="~/app/Services/userService.js"></script>
+<script src="~/app/Services/modalService.js"></script>
+<script src="~/app/Services/contentTypeService.js"></script>
+@* Directives *@
+<script src="~/app/Directives/notification.js"></script>
+@* Controllers *@
+<script src="~/app/Controllers/welcomeController.js"></script>
+<script src="~/app/Controllers/landingPageTopLayerBarChartController.js"></script>
+<script src="~/app/Controllers/landingPageTopLayerDoughnutChartController.js"></script>
+<script src="~/app/Controllers/landingPageTopLayerLineChartController.js"></script>
+<script src="~/app/Controllers/espLandingPage.js"></script>
+<script src="~/app/Controllers/carouselController.js"></script>
+<script src="~/app/Controllers/addContentTypeController.js"></script>
+<script src="~/app/Controllers/editContentTypeController.js"></script>
+<script src="~/app/Controllers/adminContentTypeController.js"></script>
+<script src="~/app/Controllers/espReportController.js"></script>
+<script src="~/app/Controllers/espUsefulSitesController.js"></script>
+}
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div data-ng-view></div>
+

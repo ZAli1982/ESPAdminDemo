@@ -1,0 +1,54 @@
+﻿<!--<div class="xprogressbar" ng-show="isBusy">
+    <uib-progressbar class="progress-striped active" value="100" type="success"><i>Complete !!!</i></uib-progressbar>
+</div>-->
+
+<div class="row border-bottom white-bg dashboard-header">
+    <div class="col-sm-12">
+        <div ng-controller="CarouselController">
+            <div>
+                <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+                    <uib-slide ng-repeat="slide in slides" active="slide.active">
+                        <img ng-src="{{slide.image}}" style="margin: auto;">
+                        <div class="carousel-caption">
+                            <h4>Slide {{$index}}</h4>
+                            <p>{{slide.text}}</p>
+                        </div>
+                    </uib-slide>
+                </uib-carousel>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="wrapper wrapper-content">
+        <div class="row">
+            <div class="col-lg-4" ng-controller="LandingPageTopLayerBarChartController">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Demo Sales Of Products</div>
+                    <div class="panel-body">
+                        <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series">
+                        </canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4" data-ng-controller="LandingPageTopLayerDoughnutChartController">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Demo Sales By Category</div>
+                    <div class="panel-body">
+                        <canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels">
+                        </canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4" data-ng-controller="LandingPageTopLayerLineChartController">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Demo Site Visits</div>
+                    <div class="panel-body">
+                        <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels"
+                                chart-legend="true" chart-series="series" chart-click="onClick"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
