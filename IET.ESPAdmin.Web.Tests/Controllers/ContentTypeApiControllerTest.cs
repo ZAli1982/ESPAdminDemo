@@ -37,7 +37,7 @@ namespace IET.ESPAdmin.Web.Tests.Controllers
             _mockContentTypeService.Setup(d => d.GetContentTypeList()).Returns(_contentTypeList.GetContentTypeListData());
             //Act
             var result = _contentTypesController.Get();
-            //Assert
+            //Assertf
             Assert.AreEqual(28, result.Count());
         }
 
