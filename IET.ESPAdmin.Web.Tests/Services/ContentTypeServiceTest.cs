@@ -95,7 +95,7 @@ namespace IET.ESPAdmin.Web.Tests.Services
             var result = _saleService.GetSaleList();
             //Assert
             //Check that i get sales list
-            Assert.AreEqual(16, result.Count);
+            Assert.AreEqual(6, result.Count);
         }
 
         public void Given_A_SalesList_I_Should_Get_SalesList()
@@ -109,7 +109,7 @@ namespace IET.ESPAdmin.Web.Tests.Services
             var result = _saleService.GetSaleList();
             //Assert
             //Check that i get sales list
-            Assert.AreEqual(16, result.Count);
+            Assert.AreEqual(6, result.Count);
         }
     }
 }
