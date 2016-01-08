@@ -20,6 +20,7 @@ namespace IET.ESP.Data
         }
 
         public DbSet<ContentType> ContentTypeSet { get; set; }
+        public DbSet<Sale> SaleSet { get; set; }
 
         public static string ConnectionStringName
         {

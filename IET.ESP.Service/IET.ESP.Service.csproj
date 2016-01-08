@@ -48,10 +48,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\ITestService.cs" />
+    <Compile Include="SaleService.cs" />
     <Compile Include="ContentTypeService.cs" />
     <Compile Include="Installer\ServiceInstaller.cs" />
+    <Compile Include="Interfaces\ISaleService.cs" />
     <Compile Include="Interfaces\IContentTypeService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IET.Common\IET.Common.csproj">

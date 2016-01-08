@@ -14,20 +14,25 @@ namespace IET.ESPAdmin.Web.Tests.Services
     {
 
         private ContentTypeService _contentTypeService;
+        private SaleService _saleService;
         private Mock<IContentTypeRepository> _mockContentTypeRepository;
+        private Mock<ISaleRepository> _mockSaleRepository;
         private Mock<IDataRepositoryFactory> _mockDataRepositoryFactory;
         private readonly ContentTypeList _contentTypeList = new ContentTypeList();
+        private readonly SalesFakeData _fakeSaleList = new SalesFakeData();
 
         [TestInitialize]
         public void Setup()
         {
             _mockContentTypeRepository = new Mock<IContentTypeRepository>();
+            _mockSaleRepository = new Mock<ISaleRepository>();
             _mockDataRepositoryFactory = new Mock<IDataRepositoryFactory>();
             _contentTypeService = new ContentTypeService(_mockDataRepositoryFactory.Object);
+            _saleService = new SaleService(_mockDataRepositoryFactory.Object);
         }
 
         [TestMethod]
-        public void When_I_Request_A_List_Of_ContentType_A_ContentTypeList_Is_Returned()
+        public void Given_I_Have_A_ContentType_List_When_I_Request_A_List_Of_ContentType_A_ContentType_List_Is_Returned()
         {
             //Arrange
             _mockContentTypeRepository.Setup(d => d.Get()).Returns(_contentTypeList.GetContentTypeListData);
@@ -39,7 +44,7 @@ namespace IET.ESPAdmin.Web.Tests.Services
         }
 
         [TestMethod]
-        public void When_I_Post_A_New_ContentType_A_New_ContentType_Should_Be_Created()
+        public void Given_I_Have_A_New_ContentType_When_I_Post_A_New_ContentType_A_New_ContentType_Should_Be_Created()
         {
             //Arrange
             var newContentType = new ContentType { Id = 29, Category = "IET Category", Group = "IET", BookType = "IET1" };
@@ -54,7 +59,7 @@ namespace IET.ESPAdmin.Web.Tests.Services
         }
 
         [TestMethod]
-        public void When_I_Update_A_ContentType_I_Should_See_The_Modified_ContentType()
+        public void Given_I_Have_A_Update_When_I_Update_A_ContentType_I_Should_See_The_Modified_ContentType()
         {
             //Arrange
             //The Modifyed ContentType
@@ -76,6 +81,35 @@ namespace IET.ESPAdmin.Web.Tests.Services
             //Verifying the Put method was called on the Service and the changes was made to the ContentType.
             _mockContentTypeRepository.Verify(d => d.Update(modifiedContentType), Times.Exactly(1));
             Assert.AreEqual("IET100", result.BookType);
+        }
+
+        [TestMethod]
+        public void Should_Get_SalesList()
+        {
+            //Arrange
+            //SalesRepository
+            _mockSaleRepository.Setup(d => d.Get()).Returns(_fakeSaleList.GetSalestData);
+            _mockDataRepositoryFactory.Setup(d => d.GetDataRepository<ISaleRepository>()).Returns(_mockSaleRepository.Object);
+            //Act
+            //Return Sales list
+            var result = _saleService.GetSaleList();
+            //Assert
+            //Check that i get sales list
+            Assert.AreEqual(6, result.Count);
+        }
+
+        public void Given_A_SalesList_I_Should_Get_SalesList()
+        {
+            //Arrange
+            //SalesRepository
+            _mockSaleRepository.Setup(d => d.Get()).Returns(_fakeSaleList.GetSalestData);
+            _mockDataRepositoryFactory.Setup(d => d.GetDataRepository<ISaleRepository>()).Returns(_mockSaleRepository.Object);
+            //Act
+            //Return Sales list
+            var result = _saleService.GetSaleList();
+            //Assert
+            //Check that i get sales list
+            Assert.AreEqual(6, result.Count);
         }
     }
 }
